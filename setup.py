@@ -4,8 +4,8 @@ requires = ["requests"]
 
 setup(
     name="pymessari",
-    version="0.0.1",
-    url="https://https://github.com/nxt-fintech/pymessari",
+    version="0.0.2",
+    url="https://github.com/nxt-fintech/pymessari",
     description="client library for messari api",
     author="Next Finance Tech",
     license="APACHE LICENSE, VERSION 2.0¶",
