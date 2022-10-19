@@ -10,16 +10,9 @@
 
 
 import json
-import time
-import urllib
 from enum import Enum
 
 import requests
-
-
-class Method(Enum):
-    GET = 1
-    POST = 2
 
 
 class API:
@@ -28,7 +21,7 @@ class API:
         self.api_key = api_key
         self.timeout = timeout
 
-    def request(self, endpoint, method=Method.GET, params=None):
+    def request(self, endpoint, params=None):
         url = self.api_url + endpoint
         headers = {
             "Accept": "application/json",
@@ -38,10 +31,7 @@ class API:
         try:
             with requests.Session() as s:
                 s.headers.update(headers)
-                if method == Method.GET:
-                    response = s.get(url, params=params, timeout=self.timeout)
-                elif method == Method.POST:
-                    response = s.post(url, data=json.dumps(params), timeout=self.timeout)
+                response = s.get(url, params=params, timeout=self.timeout)
         except requests.RequestException as e:
             raise e
 
