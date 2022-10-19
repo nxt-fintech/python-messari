@@ -145,6 +145,39 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
+    def test_get_withdraws(self):
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_withdraws(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_withdraws(self):
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_withdraws(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_total_value_locked(self):
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_total_value_locked(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
 
 if __name__ == "__main__":
     unittest.main()
