@@ -24,7 +24,7 @@ class Method(Enum):
 
 class API:
     def __init__(self, api_key, timeout=None):
-        self.api_url = "https://data.messari.io/api"
+        self.api_url = "https://data.messari.io"
         self.api_key = api_key
         self.timeout = timeout
 
@@ -64,89 +64,89 @@ class API:
     # revenue
     def get_total_revenue(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_protocol_side_revenue(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/protocol-side-revenue-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/protocol-side-revenue-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_supply_side_revenue(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/supply-side-revenue-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/supply-side-revenue-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     # deposits
     def get_total_deposits_balance(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/total-deposits-balance-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-deposits-balance-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_num_deposits(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/num-deposits/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-deposits/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_deposits(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/deposits-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/deposits-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     # borrows
     def get_total_borrows_balance(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/total-borrows-balance-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-borrows-balance-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_num_borrow(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/num-borrows/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-borrows/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_borrows(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/borrows-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/borrows-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     # liquidates
     def get_num_liquidates(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/num-liquidates/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-liquidates/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_liquidates(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/liquidates-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/liquidates-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     # withdraws
     def get_withdraws(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/withdraws-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/withdraws-usd/time-series"
 
         return self.request(endpoint, params=params)
 
     def get_num_withdraws(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/num-withdraws/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-withdraws/time-series"
 
         return self.request(endpoint, params=params)
 
     # locked
     def get_total_value_locked(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/v1/protocols/{joined_ids}/metrics/total-value-locked-usd/time-series"
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-value-locked-usd/time-series"
 
         return self.request(endpoint, params=params)
