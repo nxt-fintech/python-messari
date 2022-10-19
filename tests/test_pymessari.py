@@ -20,9 +20,9 @@ class TestAPI(unittest.TestCase):
     def setUp(self) -> None:
         dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
         dotenv.load_dotenv(dotenv_path=dotenv_path)
-        API_KEY = os.environ.get("API_KEY")
+        api_key = os.environ.get("API_KEY")
 
-        self.api = API(api_key=API_KEY)
+        self.api = API(api_key=api_key)
 
     def test_get_total_revenue(self):
         protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
