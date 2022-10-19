@@ -48,6 +48,7 @@ class API:
     def join_id(protocol_id, network_id):
         if network_id:
             protocol_id = "{protocol_id}/networks/{network_id}"
+
         return protocol_id
 
     # revenue
