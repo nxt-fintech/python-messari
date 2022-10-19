@@ -1,1 +1,1 @@
-# python-messari
+# pymessari
