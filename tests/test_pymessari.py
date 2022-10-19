@@ -1,11 +1,28 @@
+#!/usr/bin/env python
+# -*-coding:utf-8 -*-
+"""
+@File    :   test_pymessari.py
+@Time    :   2022/10/19 19:37:10
+@Author  :   Next Finance Tech
+@Version :   0.0.1
+@License :   (C)Copyright 2022 Next Finance Tech
+"""
+
+
+import os
 import unittest
 
+import dotenv
 from pymessari.pymessari import API
 
 
 class TestAPI(unittest.TestCase):
     def setUp(self) -> None:
-        self.api = API(api_key="13acb1e8-0490-4576-a2cc-f5e51498a72e")
+        dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+        dotenv.load_dotenv(dotenv_path=dotenv_path)
+        API_KEY = os.environ.get("API_KEY")
+
+        self.api = API(api_key=API_KEY)
 
     def test_get_total_revenue(self):
         protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
