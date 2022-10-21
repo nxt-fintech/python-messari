@@ -130,3 +130,4 @@ dmypy.json
 
 # MISC
 *.ipynb
+publish.sh

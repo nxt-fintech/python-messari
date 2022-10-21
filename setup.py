@@ -4,11 +4,11 @@ requires = ["requests"]
 
 setup(
     name="pymessari",
-    version="0.0.4",
+    version="0.0.5",
     url="https://github.com/nxt-fintech/pymessari",
     description="client library for messari api",
     author="Next Finance Tech",
-    license="APACHE LICENSE, VERSION 2.0¶",
+    license="APACHE LICENSE, VERSION 2.0",
     packages=["pymessari"],
     install_requires=requires,
     classifiers=["Programming Language :: Python"],

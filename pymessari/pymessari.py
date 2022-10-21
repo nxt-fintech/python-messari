@@ -54,7 +54,6 @@ class API:
         endpoint = (
             f"/api/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
         )
-        print(endpoint)
 
         return self.request(endpoint, params=params)
 
