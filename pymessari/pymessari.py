@@ -44,7 +44,7 @@ class API:
     @staticmethod
     def join_id(protocol_id, network_id):
         if network_id:
-            protocol_id = "{protocol_id}/networks/{network_id}"
+            protocol_id = f"{protocol_id}/networks/{network_id}"
 
         return protocol_id
 
@@ -54,6 +54,7 @@ class API:
         endpoint = (
             f"/api/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
         )
+        print(endpoint)
 
         return self.request(endpoint, params=params)
 
