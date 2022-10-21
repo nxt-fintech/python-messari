@@ -8,9 +8,6 @@
 """
 
 
-import json
-from enum import Enum
-
 import requests
 
 
@@ -54,7 +51,9 @@ class API:
     # revenue
     def get_total_revenue(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
+        endpoint = (
+            f"/api/v1/protocols/{joined_ids}/metrics/total-revenue-usd/time-series"
+        )
 
         return self.request(endpoint, params=params)
 
@@ -137,6 +136,8 @@ class API:
     # locked
     def get_total_value_locked(self, protocol_id, network_id=None, **params):
         joined_ids = API.join_id(protocol_id, network_id)
-        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/total-value-locked-usd/time-series"
+        endpoint = (
+            f"/api/v1/protocols/{joined_ids}/metrics/total-value-locked-usd/time-series"
+        )
 
         return self.request(endpoint, params=params)

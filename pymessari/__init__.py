@@ -8,3 +8,5 @@
 """
 
 from .pymessari import API
+
+__all__ = ["API"]
