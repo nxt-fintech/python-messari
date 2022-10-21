@@ -220,6 +220,34 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
+    def test_get_volume(self):
+        protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
+        network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_volume(
+            protocol_id=protocol_id, network_id=network_id, **params
+        )
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_swaps(self):
+        protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
+        network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_swaps(
+            protocol_id=protocol_id, network_id=network_id, **params
+        )
+
+        self.assertEqual(response["status_code"], 200)
+
 
 if __name__ == "__main__":
     unittest.main()

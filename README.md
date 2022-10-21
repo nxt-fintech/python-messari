@@ -10,3 +10,10 @@ python api client for [messari](https://messari.io/).
 ```bash
 pip install pymessari
 ```
+
+## How to use
+
+```python
+from pymessari import API
+api = API(api_key=<API_KEY>)
+```

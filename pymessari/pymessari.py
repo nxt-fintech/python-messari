@@ -141,3 +141,17 @@ class API:
         )
 
         return self.request(endpoint, params=params)
+
+    # volume
+    def get_volume(self, protocol_id, network_id=None, **params):
+        joined_ids = API.join_id(protocol_id, network_id)
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/volume-usd/time-series"
+
+        return self.request(endpoint, params=params)
+
+    # swap
+    def get_num_swaps(self, protocol_id, network_id=None, **params):
+        joined_ids = API.join_id(protocol_id, network_id)
+        endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-swaps/time-series"
+
+        return self.request(endpoint, params=params)
