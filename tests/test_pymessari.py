@@ -64,9 +64,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_total_deposits_balance(
-            protocol_id=protocol_id, **params
-        )
+        response = self.api.get_total_deposits_balance(protocol_id=protocol_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 

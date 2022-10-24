@@ -102,9 +102,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_deposits(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_deposits(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -130,9 +128,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_num_borrow(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_num_borrow(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -144,9 +140,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_borrows(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_borrows(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -172,9 +166,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_liquidates(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_liquidates(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -186,9 +178,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_withdraws(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_withdraws(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -228,9 +218,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_volume(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_volume(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
@@ -242,9 +230,7 @@ class TestAPI(unittest.TestCase):
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }
-        response = self.api.get_num_swaps(
-            protocol_id=protocol_id, network_id=network_id, **params
-        )
+        response = self.api.get_num_swaps(protocol_id=protocol_id, network_id=network_id, **params)
 
         self.assertEqual(response["status_code"], 200)
 
