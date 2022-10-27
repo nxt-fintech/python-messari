@@ -16,4 +16,10 @@ pip install pymessari
 ```python
 from pymessari import API
 api = API(api_key=<API_KEY>)
+
+asset_client = api.asset()
+market_client = api.market()
+news_client = api.news()
+protocol_client = api.protocol()
+timeseries_client = api.timeseries()
 ```
