@@ -1,30 +1,43 @@
 #!/usr/bin/env python
 # -*-coding:utf-8 -*-
 """
-@File    :   test_pymessari_with_network_id.py
-@Time    :   2022/10/21 17:37:10
+@File    :   test_protocol.py
+@Time    :   2022/10/19 19:37:10
 @Author  :   Next Finance Tech
 @License :   (C)Copyright 2022 Next Finance Tech
 """
 
 
 import os
+import time
 import unittest
 
 import dotenv
 
-from pymessari.pymessari import API
+from pymessari.pymessari import ProtocolAPI
 
 
-class TestAPI(unittest.TestCase):
+class TestProtocolAPI(unittest.TestCase):
     def setUp(self) -> None:
         dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
         dotenv.load_dotenv(dotenv_path=dotenv_path)
         api_key = os.environ.get("API_KEY")
 
-        self.api = API(api_key=api_key)
+        self.api = ProtocolAPI(api_key=api_key)
+        time.sleep(2)
 
-    def test_get_total_revenue(self):
+    def test_get_total_revenue(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_total_revenue(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_total_revenue_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -38,7 +51,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_protocol_side_revenue(self):
+    def test_get_protocol_side_revenue(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_protocol_side_revenue(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_protocol_side_revenue_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -52,7 +76,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_supply_side_revenue(self):
+    def test_get_supply_side_revenue(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_supply_side_revenue(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_supply_side_revenue_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -66,7 +101,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_total_deposits_balance(self):
+    def test_get_total_deposits_balance(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_total_deposits_balance(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_total_deposits_balance_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -80,7 +126,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_num_deposits(self):
+    def test_get_num_deposits(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_deposits(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_deposits_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -94,7 +151,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_deposits(self):
+    def test_get_deposits(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_deposits(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_deposits_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -106,7 +174,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_total_borrows_balance(self):
+    def test_get_total_borrows_balance(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_total_borrows_balance(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_total_borrows_balance_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -120,7 +199,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_num_borrow(self):
+    def test_get_num_borrow(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_borrow(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_borrow_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -132,7 +222,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_borrows(self):
+    def test_get_borrows(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_borrows(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_borrows_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -144,7 +245,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_num_liquidates(self):
+    def test_get_num_liquidates(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_liquidates(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_liquidates_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -158,7 +270,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_liquidates(self):
+    def test_get_liquidates(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_liquidates(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_liquidates_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -170,7 +293,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_withdraws(self):
+    def test_get_withdraws(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_withdraws(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_withdraws_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -182,7 +316,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_num_withdraws(self):
+    def test_get_num_withdraws(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_withdraws(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_withdraws_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -196,7 +341,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_total_value_locked(self):
+    def test_get_total_value_locked(self) -> None:
+        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_total_value_locked(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_total_value_locked_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -210,7 +366,7 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_volume(self):
+    def test_get_volume(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
@@ -222,7 +378,18 @@ class TestAPI(unittest.TestCase):
 
         self.assertEqual(response["status_code"], 200)
 
-    def test_get_num_swaps(self):
+    def test_get_num_swaps(self) -> None:
+        protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
+        params = {
+            "beg": "2017-10-19T00:00:00.000Z",
+            "end": "2022-10-17T23:59:59.999Z",
+            "interval": "1d",
+        }
+        response = self.api.get_num_swaps(protocol_id=protocol_id, **params)
+
+        self.assertEqual(response["status_code"], 200)
+
+    def test_get_num_swaps_with_network_id(self) -> None:
         protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
         network_id = "383aabb9-285c-4813-aa76-6987091b93a6"
         params = {
