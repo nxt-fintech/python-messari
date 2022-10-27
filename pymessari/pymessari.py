@@ -6,7 +6,6 @@
 @Author  :   Next Finance Tech
 @License :   (C)Copyright 2022 Next Finance Tech
 """
-
 from .asset import AssetAPI
 from .market import MarketAPI
 from .news import NewsAPI
@@ -36,7 +35,6 @@ class API:
 
     def singleton(self, attribute_name, cls):
         if hasattr(self, attribute_name):
-            print("COME HERE 1")
             instance = getattr(self, attribute_name)
             return instance
 

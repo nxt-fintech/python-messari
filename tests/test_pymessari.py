@@ -2,18 +2,22 @@
 # -*-coding:utf-8 -*-
 """
 @File    :   test_pymessari.py
-@Time    :   2022/10/19 19:37:10
+@Time    :   2022/10/24 19:59:30
 @Author  :   Next Finance Tech
 @License :   (C)Copyright 2022 Next Finance Tech
 """
-
 
 import os
 import unittest
 
 import dotenv
 
+from pymessari.asset import AssetAPI
+from pymessari.market import MarketAPI
+from pymessari.news import NewsAPI
+from pymessari.protocol import ProtocolAPI
 from pymessari.pymessari import API
+from pymessari.timeseries import TimeseriesAPI
 
 
 class TestAPI(unittest.TestCase):
@@ -24,182 +28,17 @@ class TestAPI(unittest.TestCase):
 
         self.api = API(api_key=api_key)
 
-    def test_get_total_revenue(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_total_revenue(protocol_id=protocol_id, **params)
+    def test_asset(self) -> None:
+        self.assertIsInstance(self.api.asset(), AssetAPI)
 
-        self.assertEqual(response["status_code"], 200)
+    def test_market(self) -> None:
+        self.assertIsInstance(self.api.market(), MarketAPI)
 
-    def test_get_protocol_side_revenue(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_protocol_side_revenue(protocol_id=protocol_id, **params)
+    def test_news(self) -> None:
+        self.assertIsInstance(self.api.news(), NewsAPI)
 
-        self.assertEqual(response["status_code"], 200)
+    def test_protocol(self) -> None:
+        self.assertIsInstance(self.api.protocol(), ProtocolAPI)
 
-    def test_get_supply_side_revenue(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_supply_side_revenue(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_total_deposits_balance(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_total_deposits_balance(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_num_deposits(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_num_deposits(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_deposits(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_deposits(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_total_borrows_balance(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_total_borrows_balance(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_num_borrow(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_num_borrow(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_borrows(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_borrows(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_num_liquidates(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_num_liquidates(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_liquidates(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_liquidates(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_withdraws(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_withdraws(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_num_withdraws(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_num_withdraws(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_total_value_locked(self):
-        protocol_id = "accec09e-1e9f-4b54-849e-fa7c91a10f89"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_total_value_locked(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_volume(self):
-        protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_volume(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-    def test_get_num_swaps(self):
-        protocol_id = "c0af3604-6141-4577-87c9-0b13e8fdaf4a"
-        params = {
-            "beg": "2017-10-19T00:00:00.000Z",
-            "end": "2022-10-17T23:59:59.999Z",
-            "interval": "1d",
-        }
-        response = self.api.get_num_swaps(protocol_id=protocol_id, **params)
-
-        self.assertEqual(response["status_code"], 200)
-
-
-if __name__ == "__main__":
-    unittest.main()
+    def test_timeseries(self) -> None:
+        self.assertIsInstance(self.api.timeseries(), TimeseriesAPI)

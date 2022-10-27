@@ -6,29 +6,10 @@
 @Author  :   Next Finance Tech
 @License :   (C)Copyright 2022 Next Finance Tech
 """
-
-import requests
-
 from .base import BaseAPI
 
 
 class TimeseriesAPI(BaseAPI):
-    def request(self, endpoint, params=None):
-        url = self.api_url + endpoint
-        headers = {
-            "Accept": "application/json",
-            "x-messari-api-key": self.api_key,
-        }
-
-        try:
-            with requests.Session() as s:
-                s.headers.update(headers)
-                response = s.get(url, params=params, timeout=self.timeout)
-        except requests.RequestException as e:
-            raise e
-
-        return BaseAPI.process_response(response)
-
     def list_asset_timeseries_metric_ids(self, **params):
         endpoint = "/api/v1/assets/metrics"
 

@@ -6,29 +6,10 @@
 @Author  :   Next Finance Tech
 @License :   (C)Copyright 2022 Next Finance Tech
 """
-
-import requests
-
 from .base import BaseAPI
 
 
 class ProtocolAPI(BaseAPI):
-    def request(self, endpoint, params=None):
-        url = self.api_url + endpoint
-        headers = {
-            "Accept": "application/json",
-            "x-messari-api-key": self.api_key,
-        }
-
-        try:
-            with requests.Session() as s:
-                s.headers.update(headers)
-                response = s.get(url, params=params, timeout=self.timeout)
-        except requests.RequestException as e:
-            raise e
-
-        return BaseAPI.process_response(response)
-
     @staticmethod
     def join_id(protocol_id, network_id):
         if network_id:
