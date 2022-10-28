@@ -130,4 +130,5 @@ dmypy.json
 
 # MISC
 *.ipynb
+openapi.yaml
 publish.sh
