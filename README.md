@@ -11,7 +11,7 @@ python api client for [messari](https://messari.io/).
 pip install pymessari
 ```
 
-## How to use
+## Quick start
 
 ```python
 from pymessari import API
