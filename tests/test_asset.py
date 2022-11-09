@@ -8,6 +8,7 @@
 """
 
 import os
+import time
 import unittest
 
 import dotenv
@@ -22,6 +23,7 @@ class TestAssetAPI(unittest.TestCase):
         api_key = os.environ.get("API_KEY")
 
         self.api = AssetAPI(api_key=api_key)
+        time.sleep(1)
 
     def test_get_all_assets(self) -> None:
         response = self.api.get_all_assets()
@@ -61,7 +63,7 @@ class TestAssetAPI(unittest.TestCase):
         assert_key = "btc"
         metric_id = "price"
         params = {
-            "start": "2017-10-19T00:00:00.000Z",
+            "start": "2022-10-16T23:59:59.999Z",
             "end": "2022-10-17T23:59:59.999Z",
             "interval": "1d",
         }

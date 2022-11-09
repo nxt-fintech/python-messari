@@ -8,6 +8,7 @@
 """
 
 import os
+import time
 import unittest
 
 import dotenv
@@ -22,6 +23,7 @@ class TestTimeseriesAPI(unittest.TestCase):
         api_key = os.environ.get("API_KEY")
 
         self.api = TimeseriesAPI(api_key=api_key)
+        time.sleep(1)
 
     def test_list_asset_timeseries_metric_ids(self) -> None:
         response = self.api.list_asset_timeseries_metric_ids()

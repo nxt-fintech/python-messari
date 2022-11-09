@@ -8,6 +8,7 @@
 """
 
 import os
+import time
 import unittest
 
 import dotenv
@@ -22,6 +23,7 @@ class TestMarketAPI(unittest.TestCase):
         api_key = os.environ.get("API_KEY")
 
         self.api = MarketAPI(api_key=api_key)
+        time.sleep(1)
 
     def test_get_all_markets(self) -> None:
         response = self.api.get_all_markets()

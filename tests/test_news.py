@@ -8,6 +8,7 @@
 """
 
 import os
+import time
 import unittest
 
 import dotenv
@@ -22,6 +23,7 @@ class TestNewsAPI(unittest.TestCase):
         api_key = os.environ.get("API_KEY")
 
         self.api = NewsAPI(api_key=api_key)
+        time.sleep(1)
 
     def test_get_all_news(self) -> None:
         response = self.api.get_all_news()
