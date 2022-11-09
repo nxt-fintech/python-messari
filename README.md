@@ -5,6 +5,8 @@
 
 python api client for [messari](https://messari.io/).
 
+[Official API Document](https://messari.io/api/docs).
+
 ## Install
 
 ```bash
