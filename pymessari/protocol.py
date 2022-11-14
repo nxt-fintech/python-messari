@@ -62,7 +62,7 @@ class ProtocolAPI(BaseAPI):
 
         return self.request(endpoint, params=params)
 
-    def get_num_borrow(self, protocol_id, network_id=None, **params):
+    def get_num_borrows(self, protocol_id, network_id=None, **params):
         joined_ids = ProtocolAPI.join_id(protocol_id, network_id)
         endpoint = f"/api/v1/protocols/{joined_ids}/metrics/num-borrows/time-series"
 
