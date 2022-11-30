@@ -7,6 +7,6 @@
 @License :   (C)Copyright 2022 Next Finance Tech
 """
 
-from .pymessari import API
+from .pymessari import MessariAPI
 
-__all__ = ["API"]
+__all__ = ["MessariAPI"]

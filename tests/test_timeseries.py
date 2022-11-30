@@ -28,21 +28,21 @@ class TestTimeseriesAPI(unittest.TestCase):
     def test_list_asset_timeseries_metric_ids(self) -> None:
         response = self.api.list_asset_timeseries_metric_ids()
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset_timeseries(self) -> None:
         asset_key = "bitcoin"
         metrci_id = "price"
         response = self.api.get_asset_timeseries(asset_key=asset_key, metric_id=metrci_id)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_market_timeseries(self) -> None:
         market_key = "binance-btc-usdt"
         metric_id = "price"
         response = self.api.get_market_timeseries(market_key=market_key, metric_id=metric_id)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
 
 if __name__ == "__main__":

@@ -28,13 +28,13 @@ class TestNewsAPI(unittest.TestCase):
     def test_get_all_news(self) -> None:
         response = self.api.get_all_news()
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_news_for_asset(self) -> None:
         asset_key = "btc"
         response = self.api.get_news_for_asset(asset_key=asset_key)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
 
 if __name__ == "__main__":

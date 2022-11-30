@@ -13,7 +13,7 @@ from .protocol import ProtocolAPI
 from .timeseries import TimeseriesAPI
 
 
-class API:
+class MessariAPI:
     def __init__(self, api_key, timeout=None):
         self.api_key = api_key
         self.timeout = timeout

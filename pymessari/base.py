@@ -26,15 +26,9 @@ class BaseAPI:
             with requests.Session() as s:
                 s.headers.update(headers)
                 response = s.get(url, params=params, timeout=self.timeout)
+                response.raise_for_status()
         except requests.RequestException as e:
+            # TODO: handle exception
             raise e
 
-        return BaseAPI.process_response(response)
-
-    @staticmethod
-    def process_response(response):
-        result = {"status_code": response.status_code}
-        if len(response.content) > 0:
-            result["body"] = response.json()
-
-        return result
+        return response.json()
