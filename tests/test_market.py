@@ -28,14 +28,14 @@ class TestMarketAPI(unittest.TestCase):
     def test_get_all_markets(self) -> None:
         response = self.api.get_all_markets()
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_market_timeseries(self) -> None:
         market_key = "binance-btc-usdt"
         metric_id = "price"
         response = self.api.get_market_timeseries(market_key=market_key, metric_id=metric_id)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
 
 if __name__ == "__main__":

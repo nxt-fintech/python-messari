@@ -28,36 +28,36 @@ class TestAssetAPI(unittest.TestCase):
     def test_get_all_assets(self) -> None:
         response = self.api.get_all_assets()
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset(self) -> None:
         assert_key = "btc"
         response = self.api.get_asset(asset_key=assert_key)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset_profile(self) -> None:
         assert_key = "btc"
         response = self.api.get_asset_profile(asset_key=assert_key)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset_metrics(self) -> None:
         assert_key = "btc"
         response = self.api.get_asset_metrics(asset_key=assert_key)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset_market_data(self) -> None:
         assert_key = "btc"
         response = self.api.get_asset_market_data(asset_key=assert_key)
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_list_asset_timeseries_metric_ids(self) -> None:
         response = self.api.list_asset_timeseries_metric_ids()
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
     def test_get_asset_timeseries(self) -> None:
         assert_key = "btc"
@@ -71,7 +71,7 @@ class TestAssetAPI(unittest.TestCase):
             asset_key=assert_key, metric_id=metric_id, **params
         )
 
-        self.assertEqual(response["status_code"], 200)
+        self.assertIsInstance(response, dict)
 
 
 if __name__ == "__main__":

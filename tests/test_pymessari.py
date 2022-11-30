@@ -16,7 +16,7 @@ from pymessari.asset import AssetAPI
 from pymessari.market import MarketAPI
 from pymessari.news import NewsAPI
 from pymessari.protocol import ProtocolAPI
-from pymessari.pymessari import API
+from pymessari.pymessari import MessariAPI
 from pymessari.timeseries import TimeseriesAPI
 
 
@@ -26,7 +26,7 @@ class TestAPI(unittest.TestCase):
         dotenv.load_dotenv(dotenv_path=dotenv_path)
         api_key = os.environ.get("API_KEY")
 
-        self.api = API(api_key=api_key)
+        self.api = MessariAPI(api_key=api_key)
 
     def test_asset(self) -> None:
         self.assertIsInstance(self.api.asset(), AssetAPI)
