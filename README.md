@@ -16,7 +16,7 @@ pip install pymessari
 ## Quick start
 
 ```python
-from pymessari import API
+from pymessari import MessariAPI
 api = MessariAPI(api_key=<API_KEY>)
 
 asset_client = api.asset()
